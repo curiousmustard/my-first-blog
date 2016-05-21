@@ -1,29 +1,15 @@
-<html>
-	<head>
-		<title>Jen's Blog</title>
-	</head>
+{% extends 'blog/base.html' %}
 
-	<body>
-		
-		<div>
-			<h1><a href="">Jen's Blog</a></h1>
-			<h2>Jen is a visual and UX designer living in Durham, NC.
-			</h2>
-		</div>
-
-		{% for post in posts %}
-			<div>
+{% block content %}
+	{% for post in posts %}
+						
+		<div class="post">
+			<div class="date">
 				<p>published: {{ post.published_date }}</p>
-				<h2><a href="">{{ post.title }}</a></h2>
-				<p>{{ post.text|linebreaks }}</p>
 			</div>
-
-		{% endfor %}
-
-		<div>
-			<p>Check out my <a href="http://curiousmustard.com/">portfolio</a></p>
+			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+			<p>{{ post.text|linebreaks }}</p>
 		</div>
-
-	</body>
-
-</html>
+					
+	{% endfor %}
+{% endblock %}
