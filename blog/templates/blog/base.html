@@ -12,6 +12,11 @@
 	<body>
 
 		<div class="page-header">
+		
+			{% if user.is_authenticated %}
+				<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+			{% endif %}
+
 			<h1><a href="/">Jen's Blog</a></h1>
 			<h2>Jen is a visual and UX designer living in Durham, NC</h2>
 		</div>
