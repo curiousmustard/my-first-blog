@@ -11,16 +11,15 @@
 			</h2>
 		</div>
 
-		<div>
-			<p>published: 19.05.2016, 13:38</p>
-			<h3><a href="">Cheese pizza recipe</a></h3>
-			<p>Cheese pizza is my favorite food. Here I share a super easy recipe for making your own. Or you could always call Dominos :).</p>
-		</div>
+		{% for post in posts %}
+			<div>
+				<p>published: {{ post.published_date }}</p>
+				<h2><a href="">{{ post.title }}</a></h2>
+				<p>{{ post.text|linebreaks }}</p>
+			</div>
 
-		<div>
-			<p>published: 21.05.2016, 13.55</p>
-			<h3><a href="">My second post</a></h3>
-		
+		{% endfor %}
+
 		<div>
 			<p>Check out my <a href="http://curiousmustard.com/">portfolio</a></p>
 		</div>
